@@ -1,5 +1,7 @@
-package com.catnip.retrofitexample
+package com.catnip.retrofitexample.data.network.api
 
+import com.catnip.retrofitexample.BuildConfig
+import com.catnip.retrofitexample.model.ProductsResponse
 import okhttp3.OkHttpClient
 import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
@@ -11,7 +13,7 @@ Written with love by Muhammad Hermas Yuda Pamungkas
 Github : https://github.com/hermasyp
  **/
 interface ProductService {
-    @GET("products?limit=10")
+    @GET("products?limit=30")
     suspend fun getProducts(): ProductsResponse
 
     companion object {
@@ -22,7 +24,7 @@ interface ProductService {
                 .readTimeout(120, TimeUnit.SECONDS)
                 .build()
             val retrofit = Retrofit.Builder()
-                .baseUrl("https://dummyjson.com/")
+                .baseUrl(BuildConfig.BASE_URL)
                 .addConverterFactory(GsonConverterFactory.create())
                 .client(okHttpClient)
                 .build()

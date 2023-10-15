@@ -1,3 +1,5 @@
 <resources>
     <string name="app_name">RetrofitExample</string>
+    <string name="label_product">Product</string>
+    <string name="label_empty_state">Data Produk Kosong</string>
 </resources>
